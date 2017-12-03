@@ -47,6 +47,7 @@
 
       function ballReset(){
         ballSpeedX = -ballSpeedX;
+        ballSpeedY = ballSpeedX
         ballX = canvas.width/2;
         ballY = canvas.height/2;
       }
@@ -58,6 +59,11 @@
         if(ballX > canvas.width){
           if (ballY > paddle2Y && ballY < paddle2Y + paddleHeight) {
             ballSpeedX = -ballSpeedX;
+
+            // changing verticl speed based on paddle position
+            var deltaY = ballY -(paddle2Y + paddleHeight/2)
+            ballSpeedY = deltaY/3;
+
           } else {
             playerScore += 1;
             ballReset();
@@ -67,6 +73,10 @@
         if (ballX < 0) {
           if (ballY > paddle1Y && ballY < paddle1Y + paddleHeight) {
             ballSpeedX = -ballSpeedX;
+
+            // changing verticl speed based on computer's paddle position
+            var deltaY = ballY -(paddle1Y + paddleHeight/2)
+            ballSpeedY = deltaY/3;
           } else {
             computerScore += 1;
             ballReset();
@@ -83,9 +93,9 @@
 
       function computerMovement(){
         if (paddle2Y + paddleHeight/2 < ballY - paddleHeight/3) {
-          paddle2Y += 4.5;
+          paddle2Y += 6;
         } else if (paddle2Y + paddleHeight/2 > ballY + paddleHeight/3) {
-          paddle2Y -= 4.5;
+          paddle2Y -= 6;
         }
       }
 
