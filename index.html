@@ -101,14 +101,17 @@
         drawRect(0,paddle1Y, paddleThickness, paddleHeight, "white");
         // draws second paddle
         drawRect(canvas.width - paddleThickness, paddle2Y, paddleThickness ,100, "white");
+        // draws center line
+        drawRect(canvas.width/2 - 2, 4, 4, canvas.height - 8, "white")
+        // scores player
+        canvasContext.fillText(playerScore, canvas.width/2 -100, 100);
+        // scores computer
+        canvasContext.fillText(computerScore, canvas.width/2 + 100, 100);
         // draws ball
         canvasContext.fillStyle = "red";
         canvasContext.beginPath();
         canvasContext.arc(ballX, ballY, 10, 0,Math.PI*2, true);
         canvasContext.fill();
-        // scores
-        canvasContext.fillText(playerScore, canvas.width/2 -100, 100);
-        canvasContext.fillText(computerScore, canvas.width/2 + 100, 100);
       }
     </script>
   </body>
