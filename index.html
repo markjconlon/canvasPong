@@ -13,6 +13,8 @@
       var ballY = 50;
       var ballSpeedX = 5;
       var ballSpeedY = 5;
+      var playerScore = 0;
+      var computerScore =0;
 
       var paddle1Y = 250;
       var paddle2Y = 250;
@@ -57,6 +59,7 @@
           if (ballY > paddle2Y && ballY < paddle2Y + paddleHeight) {
             ballSpeedX = -ballSpeedX;
           } else {
+            playerScore += 1;
             ballReset();
           }
         }
@@ -65,6 +68,7 @@
           if (ballY > paddle1Y && ballY < paddle1Y + paddleHeight) {
             ballSpeedX = -ballSpeedX;
           } else {
+            computerScore += 1;
             ballReset();
           }
         }
@@ -97,10 +101,14 @@
         drawRect(0,paddle1Y, paddleThickness, paddleHeight, "white");
         // draws second paddle
         drawRect(canvas.width - paddleThickness, paddle2Y, paddleThickness ,100, "white");
+        // draws ball
         canvasContext.fillStyle = "red";
         canvasContext.beginPath();
         canvasContext.arc(ballX, ballY, 10, 0,Math.PI*2, true);
         canvasContext.fill();
+        // scores
+        canvasContext.fillText(playerScore, canvas.width/2 -100, 100);
+        canvasContext.fillText(computerScore, canvas.width/2 + 100, 100);
       }
     </script>
   </body>
