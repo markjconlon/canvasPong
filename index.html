@@ -15,6 +15,7 @@
       var ballSpeedY = 5;
       var playerScore = 0;
       var computerScore =0;
+      var paddleSpeed = 7;
 
       var paddle1Y = 250;
       var paddle2Y = 250;
@@ -93,9 +94,9 @@
 
       function computerMovement(){
         if (paddle2Y + paddleHeight/2 < ballY - paddleHeight/3) {
-          paddle2Y += 6;
+          paddle2Y += paddleSpeed;
         } else if (paddle2Y + paddleHeight/2 > ballY + paddleHeight/3) {
-          paddle2Y -= 6;
+          paddle2Y -= paddleSpeed;
         }
       }
 
