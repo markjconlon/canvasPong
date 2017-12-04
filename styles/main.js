@@ -10,7 +10,7 @@ window.onload=function() {
 
   var playerScore = 0;
   var computerScore = 0;
-  var winningScore = 3;
+  var winningScore = 10;
   var gameOver = false;
 
   var paddleSpeed = 7;
