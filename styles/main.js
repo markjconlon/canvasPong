@@ -36,7 +36,6 @@ window.onload=function() {
       gameOver = false;
     }
   });
-
   function calculateMousePos(e) {
     var rect = canvas.getBoundingClientRect();
     var root = document.documentElement;
@@ -52,7 +51,7 @@ window.onload=function() {
     if (gameOver) {
       return;
     }
-    // computerMovement();
+    computerMovement();
     ballX += ballSpeedX;
     ballY += ballSpeedY;
     if(ballX > canvas.width - paddleThickness){
